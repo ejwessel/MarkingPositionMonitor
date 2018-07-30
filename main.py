@@ -93,7 +93,9 @@ class MarkingPositionMonitor:
         filled_quant = message["filled_quantity"]
         order.filled += filled_quant
 
-        # TODO: validate , remaining amount
+        #validate , remaining amount
+        remaining_order_quantity = order.quantity - order.filled
+        assert(remaining_order_quantity == message["remaining_quantity"])
 
         position = self.position_list[order.symbol]
         if order.side == "BUY":
