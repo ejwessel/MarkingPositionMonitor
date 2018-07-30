@@ -1,6 +1,6 @@
 # Implement the class below, keeping the constructor's signature unchanged; it should take no arguments.
 import json
-
+from itertools import zip_longest
 
 class MarkingPositionMonitor:
     def __init__(self):
@@ -121,16 +121,18 @@ class Order:
 
 if __name__ == '__main__':
 
-    filenames = ["./input000.txt", "./input001.txt"]
+    filenames = ["input000.txt", "input001.txt"]
 
     positionMonitor = MarkingPositionMonitor()
 
     for file in filenames:
-        with open(file, "r") as f:
-            print("File: %s" % file)
-            lines = f.readlines()
-            for line in lines:
-                print(line.strip("\n"))
-                print(str(positionMonitor.on_event(line)) + "\n")
-        f.close()
+        # open the input file
 
+        print("File: %s" % file)
+        for f_line, expected_line in zip_longest(open(file, "r"), open("expected_" + file, "r")):
+                # print the file name we're looking at
+                input = f_line.strip("\n")
+                print(input)
+                output = str(positionMonitor.on_event(input))
+                print(output)
+                assert(output == expected_line)
