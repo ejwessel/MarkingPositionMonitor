@@ -135,4 +135,4 @@ if __name__ == '__main__':
                 print(input)
                 output = str(positionMonitor.on_event(input))
                 print(output)
-                assert(output == expected_line)
+                assert(output == expected_line.strip("\n"))
