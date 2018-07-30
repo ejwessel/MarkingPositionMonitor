@@ -118,3 +118,19 @@ class Order:
         self.quantity = order_json["quantity"]
         self.filled = 0
         self.cancelled = 0
+
+if __name__ == '__main__':
+
+    filenames = ["./input000.txt", "./input001.txt"]
+
+    positionMonitor = MarkingPositionMonitor()
+
+    for file in filenames:
+        with open(file, "r") as f:
+            print("File: %s" % file)
+            lines = f.readlines()
+            for line in lines:
+                print(line.strip("\n"))
+                print(str(positionMonitor.on_event(line)) + "\n")
+        f.close()
+
