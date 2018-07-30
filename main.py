@@ -103,9 +103,10 @@ class MarkingPositionMonitor:
         return position
 
     def get_position_by_order_id(self, order_id):
-        # TODO: validate order exists
+        assert(self.order_list[order_id] is not None)
         order = self.order_list[order_id]
-        # TODO: symbol exits in position list
+
+        assert(self.position_list[order.symbol] is not None)
         return self.position_list[order.symbol]
 
 
