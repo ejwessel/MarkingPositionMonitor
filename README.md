@@ -9,9 +9,9 @@ The Firm can make the following (outbound) actions for order:
 * CANCEL - sends a request to the exchange to cancel and order
 
 The Exchange can make the following (inbound) actions for orders:
-* ORDER_ACK - exchange awknowledges an order
+* ORDER_ACK - exchange acknowledges an order
 * ORDER_REJECT - exchange rejects an order
-* CANCEL_ACK - exchange awknowledges a cancel of an order
+* CANCEL_ACK - exchange acknowledges a cancel of an order
 * CANCEL_REJECT- exchange rejects a cancel of an order
 * FILL - exchange notified that an order has been filled. It's possible to have partial fills.
 
